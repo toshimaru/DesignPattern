@@ -3,27 +3,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-
 namespace ConsoleApplication1
 {
     /// <summary>
-    /// via: http://sourcemaking.com/design_patterns/abstract_factory
+    /// via:
+    /// - http://sourcemaking.com/design_patterns/abstract_factory
+    /// - http://d.hatena.ne.jp/okazuki/20110103/1294028317
     /// </summary>
     class MainApp
     {
         static void Main(string[] args)
         {
             // Abstract Factory #1
-            var factory1 = new AbstractFactory(() => new ProductA1(), () => new ProductB1());
+            var factory1 = Create("A");
             var c1 = new Client(factory1);
             c1.run();
 
             // Abstract Factory #2
-            var factory2 = new AbstractFactory(() => new ProductA2(), () => new ProductB2());
+            var factory2 = Create("B");
             var c2 = new Client(factory2);
             c2.run();
 
             Console.Read();
+        }
+
+        private static AbstractFactory Create(string name)
+        {
+            if (name == "A")
+            {
+                return new AbstractFactory(() => new ProductA1(), () => new ProductB1());
+            }
+
+            if (name == "B")
+            {
+                return new AbstractFactory(() => new ProductA2(), () => new ProductB2());
+            }
+
+            throw new ArgumentException();
         }
     }
 
@@ -41,8 +57,8 @@ namespace ConsoleApplication1
     }
 
     // "AbstractProductA" 
-    abstract class AbstractProductA 
-    { 
+    abstract class AbstractProductA
+    {
     }
 
     // "AbstractProductB" 
@@ -53,7 +69,7 @@ namespace ConsoleApplication1
 
     // "ProductA1" 
     class ProductA1 : AbstractProductA
-    { 
+    {
     }
 
     // "ProductB1" 
@@ -125,4 +141,3 @@ class ConcreteFactory2 : AbstractFactory
 }
 */
 }
-
