@@ -7,7 +7,9 @@ using System.Text;
 namespace ConsoleApplication1
 {
     /// <summary>
-    /// via: http://sourcemaking.com/design_patterns/abstract_factory
+    /// via:
+    /// - http://sourcemaking.com/design_patterns/abstract_factory
+    /// - http://d.hatena.ne.jp/okazuki/20110103/1294028317
     /// </summary>
     class MainApp
     {
