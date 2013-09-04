@@ -15,3 +15,4 @@ class Singleton {
 
 $singleton1 = Singleton::getInstance();
 $singleton2 = Singleton::getInstance();
+echo ($singleton1 === $singleton2);
