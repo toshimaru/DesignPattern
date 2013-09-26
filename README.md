@@ -1,4 +1,4 @@
 DesignPattern
 =============
 
-study design pattern with C#.
+Learning design patterns using various language.
