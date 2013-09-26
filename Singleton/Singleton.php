@@ -1,18 +1,22 @@
-<?php 
+<?php
 
 class Singleton {
-  static private $instance = null;
+  static protected $instance;
 
-  function __construct() {
+  /**
+   * Not allowed to use constructer
+   */
+  private function __construct() {
   }
 
   static public function getInstance() {
-    if (self::$instance === null)
-      self::$instance = new self();
-    return self::$instance;
+    if (static::$instance === null)
+      static::$instance = new static();
+    return static::$instance;
   }
 }
 
 $singleton1 = Singleton::getInstance();
 $singleton2 = Singleton::getInstance();
-echo ($singleton1 === $singleton2);
+
+print_r ($singleton1 === $singleton2);
