@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * ref. http://php.net/manual/ja/class.splsubject.php
+ */
 class User implements SplSubject {
     protected $data = array();
 
@@ -40,6 +43,7 @@ class User implements SplSubject {
 
 /**
  * class UserObserver
+ * ref. http://php.net/manual/ja/class.splobserver.php
  */
 class UserObserver1 implements SplObserver {
     public function update(SplSubject $subject) {
